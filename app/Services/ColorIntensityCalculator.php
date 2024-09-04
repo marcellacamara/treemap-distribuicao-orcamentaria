@@ -14,14 +14,13 @@ class ColorIntensityCalculator
         } elseif ($variation < 0) {
             return $this->getRedIntensity(abs($variation));
         } else {
-            // Variação nula, usar a cor base de verde
             return $this->rgbToHex($this->baseGreen);
         }
     }
 
     private function getGreenIntensity(float $variation): string
     {
-        $factor = min(0.5, $variation / 100); // Ajuste do fator de variação
+        $factor = min(0.5, $variation / 100);
 
         $red = (int)($this->baseGreen[0] * (1 - $factor));
         $green = (int)($this->baseGreen[1] * (1 - $factor));
@@ -32,7 +31,7 @@ class ColorIntensityCalculator
 
     private function getRedIntensity(float $variation): string
     {
-        $factor = min(0.5, $variation / 100); // Ajuste do fator de variação
+        $factor = min(0.5, $variation / 100);
 
         $red = (int)($this->baseRed[0] * (1 - $factor));
         $green = (int)($this->baseRed[1] * (1 - $factor));
